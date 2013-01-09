@@ -9,6 +9,9 @@
     <!-- Le styles -->
     <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="lib/custom/css/base.css" rel="stylesheet">
+    <script src="lib/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['API_KEY']%>&sensor=false"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -65,19 +68,5 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script language="javascript">
-      function getLocation() {
-      if (navigator.geolocation) {
-        // Use method getCurrentPosition to get coordinates
-        navigator.geolocation.getCurrentPosition(function (position) {
-          // Access them accordingly
-          alert(position.coords.latitude + ", " + position.coords.longitude);
-        });
-      }
-    }
-    </script>
-
-    <script src="lib/jquery-1.7.2.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

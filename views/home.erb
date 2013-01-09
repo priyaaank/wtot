@@ -1,5 +1,7 @@
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit form-container">
+  <div class="row">
+    <div class="span5">
   <form class="form-horizontal">
     <div class="control-group">
       <label class="control-label" for="costPerHead">Per head budget is</label>
@@ -37,3 +39,33 @@
     </div>
   </form>
 </div>
+<div class="span5">
+  <div id="map_canvas"></div>
+</div>
+</div>
+</div>
+
+<script language="javascript">
+  function initialize() {
+    var mapOptions = {
+      center: new google.maps.LatLng(-34.397, 150.644),
+      zoom: 8,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  }
+
+  jQuery(document).ready(function() {
+    initialize();
+  });
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      // Use method getCurrentPosition to get coordinates
+      navigator.geolocation.getCurrentPosition(function (position) {
+        // Access them accordingly
+        alert(position.coords.latitude + ", " + position.coords.longitude);
+      });
+     }
+    }
+</script>

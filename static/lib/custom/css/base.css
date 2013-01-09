@@ -1,3 +1,8 @@
 .form-container {
   background: #258AA7 url(../img/unit-bg-blue.png);
 }
+
+#map_canvas {
+  height:181px;
+  width:500px;
+}
