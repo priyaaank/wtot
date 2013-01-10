@@ -1,71 +1,60 @@
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit form-container">
-  <div class="row">
-    <div class="span5">
-  <form class="form-horizontal">
-    <div class="control-group">
-      <label class="control-label" for="costPerHead">Per head budget is</label>
-      <div class="controls">
-        <div class="input-prepend input-append">
-          <span class="add-on">Rs.</span>
-          <input class="span2" id="costPerHead" type="text">
-          <span class="add-on">.00</span>
+  <form method='POST' action='/search' name="blah" class="form-horizontal">
+    <div class="row">
+      <div class="span5">
+        <div class="control-group">
+          <label class="control-label" for="costPerHead">Per head budget is</label>
+          <div class="controls">
+            <div class="input-prepend input-append">
+              <span class="add-on">Rs.</span>
+              <input class="span2" id="costPerHead" type="text">
+              <span class="add-on">.00</span>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="foodPreference">People eat</label>
+          <div class="controls">
+            <div class="btn-group" data-toggle="buttons-radio">
+              <button type="button" name="foodPreference" class="btn btn-success">Veg</button>
+              <button type="button" name="foodPreference" class="btn btn-danger">Non Veg</button>
+              <button type="button" name="foodPreference" class="btn btn-warning">Both</button>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="visitTime">Planning to go in</label>
+          <div class="controls">
+            <div class="btn-group" data-toggle="buttons-radio">
+              <button type="button" name="visitTime" class="btn btn-info">Morning</button>
+              <button type="button" name="visitTime" class="btn btn-info">Noon</button>
+              <button type="button" name="visitTime" class="btn btn-info">Evening</button>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="distance">A place within</label>
+          <div class="controls">
+            <div class="input-prepend input-append">
+              <input class="span2" id="distance" type="text">
+              <span class="add-on">Kms.</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label" for="foodPreference">People eat</label>
-      <div class="controls">
-        <div class="btn-group" data-toggle="buttons-radio">
-          <button type="button" class="btn btn-success">Veg</button>
-          <button type="button" class="btn btn-danger">Non Veg</button>
-          <button type="button" class="btn btn-warning">Both</button>
-        </div>
+      <div class="span5">
+        <div id="map_canvas"></div>
       </div>
     </div>
-    <div class="control-group">
-      <label class="control-label" for="distance">A place within</label>
-      <div class="controls">
-        <div class="input-prepend input-append">
-          <input class="span2" id="distance" type="text">
-          <span class="add-on">Kms.</span>
+    <div class="row">
+      <div class="span10">
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn btn-primary">Go Fetch!</button>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <button type="submit" class="btn btn-primary">Go Fetch!</button>
       </div>
     </div>
   </form>
 </div>
-<div class="span5">
-  <div id="map_canvas"></div>
-</div>
-</div>
-</div>
-
-<script language="javascript">
-  function initialize() {
-    var mapOptions = {
-      center: new google.maps.LatLng(-34.397, 150.644),
-      zoom: 8,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-  }
-
-  jQuery(document).ready(function() {
-    initialize();
-  });
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      // Use method getCurrentPosition to get coordinates
-      navigator.geolocation.getCurrentPosition(function (position) {
-        // Access them accordingly
-        alert(position.coords.latitude + ", " + position.coords.longitude);
-      });
-     }
-    }
-</script>

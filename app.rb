@@ -12,3 +12,7 @@ get '/' do
   erb :home
 end
 
+post '/search' do
+  puts "got it"
+  puts params[:foodPreference].inspect
+end
