@@ -3,12 +3,12 @@ if(wtot.map == null) wtot.mapDisplay = {};
 
 wtot.mapDisplay = function(mapHolder) {
 
-  var userLocationMarker;
+  var userLocationMarker = null;
 
   var defaultMapOptions = {
     //initial location is that of pune
     center: new google.maps.LatLng(18.5236, 73.8478),
-    zoom: 8,
+    zoom: 16,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
