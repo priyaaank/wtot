@@ -24,6 +24,7 @@ wtot.mapDisplay = function(mapHolder) {
     var location = new google.maps.LatLng(latitude,longitude)
     moveNewLocationToCenter(location);
     addMarkerAtCenter();
+    updateUserMarkerLocation(geoPosition);
   };
 
   var addMarkerAtCenter = function() {
