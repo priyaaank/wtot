@@ -1,9 +1,19 @@
 if(wtot == null) var wtot = {};
-if(wtot.map == null) wtot.mapDisplay = {};
+
+wtot.userLocation = function(callback) {
+  var currentLocation = function() {
+    navigator.geolocation.getCurrentPosition(callback);
+  };
+
+  return {
+    currentLocation : currentLocation
+  };
+};
 
 wtot.mapDisplay = function(mapHolder) {
 
   var userLocationMarker = null;
+  var userLocationLocator = wtot.userLocation;
 
   var defaultMapOptions = {
     //initial location is that of pune
@@ -24,7 +34,7 @@ wtot.mapDisplay = function(mapHolder) {
     var location = new google.maps.LatLng(latitude,longitude)
     moveNewLocationToCenter(location);
     addMarkerAtCenter();
-    updateUserMarkerLocation(geoPosition);
+    updateUserMarkerLocation(location);
   };
 
   var addMarkerAtCenter = function() {
@@ -44,25 +54,16 @@ wtot.mapDisplay = function(mapHolder) {
     map.panTo(location)
   };
 
-  return {
-    updateLocation : updateLocation
-  };
+  setTimeout(function() {
+    wtot.userLocation(updateLocation).currentLocation();
+  }, 1000);
 };
 
-wtot.userLocation = function(callback) {
-  var currentLocation = function() {
-    navigator.geolocation.getCurrentPosition(callback);
-  };
-
-  return {
-    currentLocation : currentLocation
-  };
-};
 
 
 ;(function($){
   $(document).ready(function() {
     map = wtot.mapDisplay(document.getElementById("map_canvas"));
-    wtot.userLocation(map.updateLocation).currentLocation();
+    //wtot.userLocation(map.updateLocation).currentLocation();
   });
 })(jQuery);
