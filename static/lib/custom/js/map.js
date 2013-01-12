@@ -6,7 +6,8 @@ wtot.mapDisplay = function(mapHolder) {
   var userLocationMarker;
 
   var defaultMapOptions = {
-    center: new google.maps.LatLng(-34.397, 150.644),
+    //initial location is that of pune
+    center: new google.maps.LatLng(18.5236, 73.8478),
     zoom: 8,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
