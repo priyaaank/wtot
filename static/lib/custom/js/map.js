@@ -8,7 +8,7 @@ wtot.mapDisplay = function(mapHolder) {
   var defaultMapOptions = {
     //initial location is that of pune
     center: new google.maps.LatLng(18.5236, 73.8478),
-    zoom: 8,
+    zoom: 16,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
@@ -40,7 +40,6 @@ wtot.mapDisplay = function(mapHolder) {
   };
 
   var moveNewLocationToCenter = function(location) {
-    map.setZoom(16);
     map.panTo(location)
   };
 
