@@ -14,6 +14,7 @@ wtot.mapDisplay = function(mapHolder) {
 
   var userLocationMarker = null;
   var userLocationLocator = wtot.userLocation;
+  var currentLocation;
 
   var defaultMapOptions = {
     //initial location is that of pune
@@ -48,15 +49,24 @@ wtot.mapDisplay = function(mapHolder) {
   var updateUserMarkerLocation = function(geoLocation) {
     userLocationMarker.setPosition(geoLocation);
     moveNewLocationToCenter(geoLocation);
+    currentLocation = geoLocation;
   };
 
   var moveNewLocationToCenter = function(location) {
     map.panTo(location)
   };
 
+  var currentUserLocation = function() {
+    currentLocation;
+  };
+
   setTimeout(function() {
     wtot.userLocation(updateLocation).currentLocation();
   }, 1000);
+
+  return {
+    currentUserLocation : currentUserLocation;
+  };
 };
 
 
@@ -64,6 +74,5 @@ wtot.mapDisplay = function(mapHolder) {
 ;(function($){
   $(document).ready(function() {
     map = wtot.mapDisplay(document.getElementById("map_canvas"));
-    //wtot.userLocation(map.updateLocation).currentLocation();
   });
 })(jQuery);
