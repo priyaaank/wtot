@@ -54,12 +54,12 @@ wtot.APIService = function() {
 (function($){
   $(document).ready(function() {
     $("#search").bind('click', function() {
-      var budget = $("#costPerHead").attr("value");
-      var foodPref = $("name='foodPreference'");
-      var timePref = $("");
-      var distance = $("");
-      var location = $("");
-      alert(budget);
+      //var budget = $("#costPerHead").attr("value");
+      //var foodPref = $("name='foodPreference'");
+      //var timePref = $("");
+      //var distance = $("");
+      //var location = $("");
+      console.log(displayedMap.currentUserLocation());
     });
   });
 })(jQuery);

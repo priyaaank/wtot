@@ -1,4 +1,5 @@
 if(wtot == null) var wtot = {};
+var displayedMap = null;
 
 wtot.userLocation = function(callback) {
   var currentLocation = function() {
@@ -10,11 +11,12 @@ wtot.userLocation = function(callback) {
   };
 };
 
-wtot.mapDisplay = function(mapHolder) {
+wtot.MapDisplay = function(mapHolder) {
 
   var userLocationMarker = null;
   var userLocationLocator = wtot.userLocation;
-  var currentLocation;
+  var currentLatitude;
+  var currentLongitude;
 
   var defaultMapOptions = {
     //initial location is that of pune
@@ -49,7 +51,8 @@ wtot.mapDisplay = function(mapHolder) {
   var updateUserMarkerLocation = function(geoLocation) {
     userLocationMarker.setPosition(geoLocation);
     moveNewLocationToCenter(geoLocation);
-    currentLocation = geoLocation;
+    currentLatitude = geoLocation.lat()
+    currentLongitude = geoLocation.lng();
   };
 
   var moveNewLocationToCenter = function(location) {
@@ -57,7 +60,10 @@ wtot.mapDisplay = function(mapHolder) {
   };
 
   var currentUserLocation = function() {
-    currentLocation;
+    return {
+      latitude : currentLatitude,
+      longitude : currentLongitude
+    };
   };
 
   setTimeout(function() {
@@ -65,7 +71,7 @@ wtot.mapDisplay = function(mapHolder) {
   }, 1000);
 
   return {
-    currentUserLocation : currentUserLocation;
+    currentUserLocation : currentUserLocation
   };
 };
 
@@ -73,6 +79,6 @@ wtot.mapDisplay = function(mapHolder) {
 
 ;(function($){
   $(document).ready(function() {
-    map = wtot.mapDisplay(document.getElementById("map_canvas"));
+    displayedMap = new wtot.MapDisplay(document.getElementById("map_canvas"));
   });
 })(jQuery);
