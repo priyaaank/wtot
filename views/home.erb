@@ -17,9 +17,10 @@
           <label class="control-label" for="foodPreference">People eat</label>
           <div class="controls">
             <div class="btn-group" data-toggle="buttons-radio">
-              <button type="button" name="foodPreference" class="btn btn-success">Veg</button>
-              <button type="button" name="foodPreference" class="btn btn-danger">Non Veg</button>
-              <button type="button" name="foodPreference" class="btn btn-warning">Both</button>
+              <button type="button" id="vegetarian" name="foodPreference" class="btn btn-success">Veg</button>
+              <button type="button" id="nonvegetarian" name="foodPreference" class="btn btn-danger">Non Veg</button>
+              <button type="button" id="both" name="foodPreference" class="btn btn-warning">Both</button>
+              <input type="hidden" name="foodPrefValue" id="foodPrefValue" value="" />
             </div>
           </div>
         </div>
@@ -27,9 +28,10 @@
           <label class="control-label" for="visitTime">Planning to go in</label>
           <div class="controls">
             <div class="btn-group" data-toggle="buttons-radio">
-              <button type="button" name="visitTime" class="btn btn-info">Morning</button>
-              <button type="button" name="visitTime" class="btn btn-info">Noon</button>
-              <button type="button" name="visitTime" class="btn btn-info">Evening</button>
+              <button type="button" id="morning" name="visitTime" class="btn btn-info">Morning</button>
+              <button type="button" id="noon" name="visitTime" class="btn btn-info">Noon</button>
+              <button type="button" id="evening" name="visitTime" class="btn btn-info">Evening</button>
+              <input type="hidden" name="timePrefValue" id="timePrefValue" value="" />
             </div>
           </div>
         </div>

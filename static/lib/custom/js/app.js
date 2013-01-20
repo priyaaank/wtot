@@ -53,13 +53,26 @@ wtot.APIService = function() {
 
 (function($){
   $(document).ready(function() {
+
+    $('button[name="foodPreference"]').click(function() {
+      $("#foodPrefValue").attr('value', $(this).attr('id'));
+    });
+
+    $('button[name="visitTime"]').click(function() {
+      $("#timePrefValue").attr('value', $(this).attr('id'));
+    });
+
     $("#search").bind('click', function() {
-      //var budget = $("#costPerHead").attr("value");
-      //var foodPref = $("name='foodPreference'");
-      //var timePref = $("");
-      //var distance = $("");
-      //var location = $("");
-      console.log(displayedMap.currentUserLocation());
+      var budget = $("#costPerHead").attr("value");
+      var timePref = $("#timePrefValue").attr("value");
+      var foodPref = $("#foodPrefValue").attr("value");
+      var distance = $("#distance").attr("value");
+      var location = displayedMap.currentUserLocation();
+      console.log("budget:" + budget);
+      console.log("time:" + timePref);
+      console.log("food:" + foodPref);
+      console.log("distance:" + distance);
+      console.log("location:" + location);
     });
   });
 })(jQuery);
